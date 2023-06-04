@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer';
 
 function Layout({ children, ...props }) {
   return (
@@ -9,7 +10,7 @@ function Layout({ children, ...props }) {
         <section className="">{children}</section>
       </main>
       {/* TODO: place your footer company */}
-      <footer>© 2023 React Page buy and sell</footer>
+      <Footer />
     </div>
   );
 }
