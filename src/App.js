@@ -8,6 +8,8 @@ import {
   ModifyUser,
   NotFoundPage,
   ModifyProduct,
+  ContactPage,
+  CreateProduct,
 } from './components';
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
       <Route path="/" element={<IndexPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/createProduct" element={<CreateProduct />} />
       <Route path="/user/:id" element={<UserPage />} />
       <Route path="/modify/:id" element={<ModifyUser />} />
       <Route path="/modifyProduct/:id" element={<ModifyProduct />} />
