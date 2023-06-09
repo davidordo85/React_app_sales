@@ -20,8 +20,6 @@ const ListItems = () => {
     }
   };
 
-  console.log(products);
-
   return (
     <div>
       <div>{JSON.stringify(products)}</div>
