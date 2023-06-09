@@ -20,17 +20,22 @@ const LoginForm = ({ onSubmit }) => {
     });
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    onSubmit(credentials);
+  };
+
   const { email, password, remember } = credentials;
-  console.log(credentials);
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <FormField
         type="email"
         name="email"
         label="Email"
         value={email}
         onChange={handleChange}
+        required
       />
       <FormField
         type="password"
@@ -38,6 +43,7 @@ const LoginForm = ({ onSubmit }) => {
         label="Password"
         value={password}
         onChange={handleChange}
+        required
       />
 
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
