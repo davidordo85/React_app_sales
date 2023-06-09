@@ -2,6 +2,7 @@ import React from 'react';
 import LoginForm from '../login_form/LoginForm';
 import { login } from '../../../api/auth';
 
+// TODO: mejorar el handleSubmit
 function LoginPage() {
   const handleSubmit = async credentials => {
     try {
