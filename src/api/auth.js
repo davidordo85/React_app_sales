@@ -5,8 +5,12 @@ const authBaseUrl = '/api/v1/user';
 
 export const login = credentials => {
   return client.post(`${authBaseUrl}/login`, credentials).then(({ token }) => {
+    if (credentials.remember) {
+      storage.remember('auth', token);
+    } else {
+      storage.set('auth', token);
+    }
     configureClient({ token });
-    storage.set('auth', token);
   });
 };
 
