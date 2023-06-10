@@ -5,7 +5,7 @@ import { Form } from 'react-bootstrap';
 function FormField({ label, ...props }) {
   return (
     <Form.Group>
-      <Form.Label>{label}</Form.Label>
+      <Form.Label className="form-label">{label}</Form.Label>
       <Form.Control {...props} />
     </Form.Group>
   );

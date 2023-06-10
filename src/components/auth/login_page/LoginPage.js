@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from '../login_form/LoginForm';
 import { login } from '../../../api/auth';
+import './loginPage.css';
 
 // TODO: mejorar el handleSubmit
 function LoginPage() {
@@ -14,8 +15,14 @@ function LoginPage() {
     }
   };
   return (
-    <div>
-      <LoginForm onSubmit={handleSubmit} />
+    <div className="login-container">
+      <div className="login-content">
+        <div className="login-image"></div>
+        <div className="login-form">
+          <h2 className="login-form-title">Log in</h2>
+          <LoginForm onSubmit={handleSubmit} />
+        </div>
+      </div>
     </div>
   );
 }
