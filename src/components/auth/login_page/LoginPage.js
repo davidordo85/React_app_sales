@@ -6,7 +6,7 @@ import MessageError from '../../shared/MessageAlert';
 import './loginPage.css';
 import LoadingSpinner from '../../shared/LoadingSpinner';
 
-function LoginPage() {
+function LoginPage({ onLogin }) {
   const [error, setError] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ function LoginPage() {
     setIsLoading(true);
     try {
       await login(credentials);
+      onLogin();
       navigate('/');
     } catch (error) {
       setError(error);

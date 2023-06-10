@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router';
 import {
@@ -13,11 +14,18 @@ import {
   DetailPage,
 } from './components';
 
-function App() {
+function App({ isInitiallyLogged }) {
+  const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
+  const handleLogin = () => setIsLogged(true);
+  const handleLogout = () => setIsLogged(false);
+
   return (
     <Routes>
-      <Route path="/" element={<IndexPage />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/"
+        element={<IndexPage isLogged={isLogged} onLogout={handleLogout} />}
+      />
+      <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/createProduct" element={<CreateProduct />} />
