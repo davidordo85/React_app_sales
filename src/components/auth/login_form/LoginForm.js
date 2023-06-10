@@ -45,14 +45,18 @@ const LoginForm = ({ onSubmit }) => {
         onChange={handleChange}
         required
       />
-
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      <Form.Group
+        className="mb-3 d-flex align-items-center justify-content-center"
+        controlId="formBasicCheckbox"
+      >
         <Form.Check
           name="remember"
           type="checkbox"
           label="Remember Password"
           onChange={handleChange}
           value={remember}
+          id="custom-checkbox"
+          className="form-switch"
         />
       </Form.Group>
 
