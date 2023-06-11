@@ -2,10 +2,11 @@ import React from 'react';
 // TODO: place your company logo
 import logo from '../../logo.svg';
 import FormSearch from '../form_search/FormSearch';
+import AuthLink from '../auth/authLink/AuthLink';
 
-import { Nav, NavDropdown, Navbar, Image } from 'react-bootstrap';
+import { Nav, Navbar, Image } from 'react-bootstrap';
 
-function Header() {
+function Header({ isLogged }) {
   return (
     <Navbar
       bg="dark"
@@ -23,13 +24,7 @@ function Header() {
         <Nav className="mr-auto">
           {/* Agrega aquí tus elementos de categorías */}
         </Nav>
-        <Nav>
-          <NavDropdown title="Usuario" id="responsive-nav-dropdown">
-            <NavDropdown.Item href="/profile">My profile</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/logout">Log out</NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
+        <AuthLink logged={isLogged} />
       </Navbar.Collapse>
     </Navbar>
   );
