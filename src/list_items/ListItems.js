@@ -6,10 +6,10 @@ const ListItems = ({
   name,
   price,
   quantity,
-  image,
+  images,
   description,
   rating,
-  category,
+  categories,
   isLoading,
 }) => {
   return (
@@ -19,7 +19,7 @@ const ListItems = ({
       ) : (
         <>
           <Carousel>
-            {image.map((photo, index) => (
+            {images.map((photo, index) => (
               <Carousel.Item key={index}>
                 <img
                   className="d-block w-100"
@@ -32,7 +32,7 @@ const ListItems = ({
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            {category.map((type, index) => (
+            {categories.map((type, index) => (
               <Badge key={index} variant="secondary">
                 {type}
               </Badge>
