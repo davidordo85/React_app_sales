@@ -7,8 +7,6 @@ function Auth({ logged }) {
     logout().then(logged.onLogout);
   };
 
-  console.log(logged.isLogged);
-
   return (
     <Nav>
       {logged.isLogged ? (
