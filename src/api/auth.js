@@ -14,6 +14,10 @@ export const login = credentials => {
   });
 };
 
+export const register = credentials => {
+  return client.post(`${authBaseUrl}/register`, credentials);
+};
+
 export const logout = () => {
   return Promise.resolve().then(() => {
     resetClient();

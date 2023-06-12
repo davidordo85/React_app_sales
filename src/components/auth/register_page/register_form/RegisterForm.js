@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import FormField from '../../../shared/FormField';
 
-const RegisterForm = () => {
+const RegisterForm = ({ onSubmit }) => {
   const [credentials, setCredentials] = React.useState({
     email: '',
     password: '',
@@ -25,12 +25,15 @@ const RegisterForm = () => {
     });
   };
 
-  console.log(credentials);
+  const handleSubmit = event => {
+    event.preventDefault();
+    onSubmit(credentials);
+  };
 
   const { email, password, name, birthdate } = credentials;
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <FormField
         type="name"
         name="name"
