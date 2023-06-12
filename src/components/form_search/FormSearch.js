@@ -5,10 +5,10 @@ import { FaSearch } from 'react-icons/fa';
 function FormSearch() {
   return (
     <Form>
-      <div className="input-group">
+      <div className="input-group m-2">
         <FormControl type="text" placeholder="Search" className="ml-2" />
         <div className="input-group-append">
-          <Button variant="light" className="mr-1">
+          <Button variant="info" className="mr-1">
             <FaSearch />
           </Button>
         </div>

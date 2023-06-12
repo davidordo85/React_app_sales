@@ -59,10 +59,11 @@ const LoginForm = ({ onSubmit }) => {
           className="form-switch"
         />
       </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Log in
-      </Button>
+      <div className="d-flex justify-content-center m-2">
+        <Button className="w-100" variant="dark" type="submit">
+          Log in
+        </Button>
+      </div>
     </Form>
   );
 };

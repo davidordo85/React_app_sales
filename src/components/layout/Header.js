@@ -13,15 +13,20 @@ function Header({ isLogged }) {
       bg="dark"
       variant="dark"
       expand="lg"
-      collapseOnSelect
       className="w-100 p-3"
+      collapseOnSelect
     >
       <Navbar.Brand as={Link} to="/">
         <Image src={logo} alt="Logo" style={{ width: '30px' }} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <FormSearch />
+      <Navbar.Collapse
+        id="responsive-navbar-nav"
+        className="justify-content-around"
+      >
+        <div className="m-1">
+          <FormSearch />
+        </div>
         <Nav className="mr-auto">
           {/* Agrega aquí tus elementos de categorías */}
         </Nav>

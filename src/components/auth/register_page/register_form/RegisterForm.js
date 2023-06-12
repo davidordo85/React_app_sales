@@ -67,9 +67,11 @@ const RegisterForm = ({ onSubmit }) => {
         onChange={handleChange}
         required
       />
-      <Button variant="primary" type="submit">
-        Register
-      </Button>
+      <div className="d-flex justify-content-center m-2">
+        <Button className="w-100" variant="warning" type="submit">
+          Register
+        </Button>
+      </div>
     </Form>
   );
 };
