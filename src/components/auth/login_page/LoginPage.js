@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import LoginForm from '../login_form/LoginForm';
 import { login } from '../../../api/auth';
 import MessageError from '../../shared/MessageAlert';
-import './loginPage.css';
 import LoadingSpinner from '../../shared/LoadingSpinner';
+
+//TODO: falta mejorar el botón, poner enlace a registro y recordar contraseña
 
 function LoginPage({ onLogin }) {
   const [error, setError] = React.useState(null);

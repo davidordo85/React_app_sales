@@ -32,7 +32,71 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* 
+  * styles for login and register pages
+*/
+
+.login-container,
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-content,
+.register-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;
+  height: 60%;
+  padding: 2rem;
+  background-color: #f2f2f2;
+}
+
+.login-image {
+  background-image: url('../public/images/background-login.jpg');
+
+}
+
+.register-image {
+  background-image: url('../public/images/background-register.jpg');
+}
+
+.login-image,
+.register-image {
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+
+.login-form,
+.register-form {
+  display: grid;
+}
+
+.login-form-title,
+.register-form-title {
+  text-align: center;
+}
+
+/* Media query para ajustar el diseño en versiones móviles */
+@media (max-width: 768px) {
+
+  .login-content,
+  .register-content {
+    grid-template-columns: 1fr;
+  }
+
+  .login-image,
+  .register-image {
+    height: 200px;
   }
 }

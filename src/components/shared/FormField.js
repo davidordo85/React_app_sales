@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Form, InputGroup } from 'react-bootstrap';
-import { FiMail } from 'react-icons/fi';
-import { FaLock } from 'react-icons/fa';
+import { FaLock, FaCalendarAlt, FaUser, FaEnvelope } from 'react-icons/fa';
 
 function FormField({ label, ...props }) {
   return (
@@ -10,8 +9,16 @@ function FormField({ label, ...props }) {
       <Form.Label className="form-label">{label}</Form.Label>
       <InputGroup>
         <InputGroup.Text>
-          {/* TODO: este ternario de abajo es solo para form de email o password, hay que cambiarlo para otro tipo de form */}
-          {label !== 'Email' ? <FaLock /> : <FiMail />}
+          {/* TODO: este ternario de abajo solo tiene email name birthdate y si no el de contraseña */}
+          {label === 'Email' ? (
+            <FaLock />
+          ) : label === 'Birthdate' ? (
+            <FaCalendarAlt />
+          ) : label === 'Name' ? (
+            <FaUser />
+          ) : (
+            <FaEnvelope />
+          )}
         </InputGroup.Text>
         <Form.Control {...props} />
       </InputGroup>
