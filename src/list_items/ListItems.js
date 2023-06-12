@@ -21,11 +21,13 @@ const ListItems = ({
           <Carousel>
             {images.map((photo, index) => (
               <Carousel.Item key={index}>
-                <img
-                  className="d-block w-100"
-                  src={photo}
-                  alt={`Item ${index + 1}`}
-                />
+                <div className="carousel-image-container">
+                  <img
+                    className="carousel-image"
+                    src={`${process.env.REACT_APP_API_BASE_URL}/images/${photo}`}
+                    alt={`Item ${index + 1}`}
+                  />
+                </div>
               </Carousel.Item>
             ))}
           </Carousel>
