@@ -16,6 +16,14 @@ function Auth({ isLogged, onLogout }) {
             My profile
           </NavDropdown.Item>
           <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to="/modify/:id">
+            Modify profile
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to="/myProducts/:id">
+            My products
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
           <NavDropdown.Item onClick={handleLogoutClick}>
             Log out
           </NavDropdown.Item>

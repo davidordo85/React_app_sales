@@ -12,6 +12,7 @@ import {
   ContactPage,
   CreateProduct,
   DetailPage,
+  MyProducts,
 } from './components';
 
 function App({ isInitiallyLogged }) {
@@ -46,6 +47,10 @@ function App({ isInitiallyLogged }) {
       <Route
         path="/modify/:id"
         element={<ModifyUser isLogged={isLogged} onLogout={handleLogout} />}
+      />
+      <Route
+        path="/myProducts/:id"
+        element={<MyProducts isLogged={isLogged} onLogout={handleLogout} />}
       />
       <Route
         path="/modifyProduct/:id"
