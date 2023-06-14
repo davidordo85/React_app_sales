@@ -7,7 +7,7 @@ import AuthLink from '../auth/authLink/AuthLink';
 
 import { Nav, Navbar, Image } from 'react-bootstrap';
 
-function Header({ isLogged }) {
+function Header({ ...props }) {
   return (
     <Navbar
       bg="dark"
@@ -30,7 +30,7 @@ function Header({ isLogged }) {
         <Nav className="mr-auto">
           {/* Agrega aquí tus elementos de categorías */}
         </Nav>
-        <AuthLink logged={isLogged} />
+        <AuthLink {...props} />
       </Navbar.Collapse>
     </Navbar>
   );

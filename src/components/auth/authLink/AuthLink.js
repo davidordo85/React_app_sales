@@ -3,16 +3,16 @@ import { Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { logout } from '../../../api/auth';
 
-function Auth({ logged }) {
+function Auth({ isLogged, onLogout }) {
   const handleLogoutClick = () => {
-    logout().then(logged.onLogout);
+    logout().then(onLogout);
   };
 
   return (
     <Nav>
-      {logged.isLogged ? (
+      {isLogged ? (
         <NavDropdown title="User" id="responsive-nav-dropdown">
-          <NavDropdown.Item as={Link} to="/profile">
+          <NavDropdown.Item as={Link} to="/user/:id">
             My profile
           </NavDropdown.Item>
           <NavDropdown.Divider />

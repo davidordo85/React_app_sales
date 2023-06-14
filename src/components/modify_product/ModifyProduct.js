@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 
-function ModifyProduct() {
+function ModifyProduct({ ...props }) {
   return (
-    <Layout>
+    <Layout {...props}>
       <div>Modify Product</div>
     </Layout>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 
-function CreateProduct() {
+function CreateProduct({ ...props }) {
   return (
-    <Layout>
+    <Layout {...props}>
       <div>CreateProduct</div>
     </Layout>
   );

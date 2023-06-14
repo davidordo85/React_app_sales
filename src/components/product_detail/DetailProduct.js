@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 
-const DetailPage = () => {
+const DetailPage = ({ ...props }) => {
   return (
-    <Layout>
+    <Layout {...props}>
       <div>detail page</div>
     </Layout>
   );

@@ -4,7 +4,7 @@ import { getProducts } from '../../api/Items';
 import MessageError from '../shared/MessageAlert';
 import ProductsList from '../../list_items/ProductsList';
 
-const IndexPage = isLogged => {
+const IndexPage = ({ ...props }) => {
   const [products, setProducts] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
@@ -27,7 +27,7 @@ const IndexPage = isLogged => {
     }
   };
   return (
-    <Layout isLogged={isLogged}>
+    <Layout {...props}>
       <div className="container">
         <div>
           <ProductsList products={products} isLoading={isLoading} />

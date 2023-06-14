@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../../layout/Layout';
 
-function ModifyUser() {
+function ModifyUser({ ...props }) {
   return (
-    <Layout>
+    <Layout {...props}>
       <div>ModifyUser</div>
     </Layout>
   );

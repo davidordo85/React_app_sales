@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 
-function ContactPage() {
+function ContactPage({ ...props }) {
   return (
-    <Layout>
+    <Layout {...props}>
       <div>Contact Page</div>
     </Layout>
   );

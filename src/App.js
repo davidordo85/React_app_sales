@@ -27,13 +27,34 @@ function App({ isInitiallyLogged }) {
       />
       <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/createProduct" element={<CreateProduct />} />
-      <Route path="/detail/:id" element={<DetailPage />} />
-      <Route path="/user/:id" element={<UserPage />} />
-      <Route path="/modify/:id" element={<ModifyUser />} />
-      <Route path="/modifyProduct/:id" element={<ModifyProduct />} />
-      <Route path="*" element={<NotFoundPage />} />
+      <Route
+        path="/contact"
+        element={<ContactPage isLogged={isLogged} onLogout={handleLogout} />}
+      />
+      <Route
+        path="/createProduct"
+        element={<CreateProduct isLogged={isLogged} onLogout={handleLogout} />}
+      />
+      <Route
+        path="/detail/:id"
+        element={<DetailPage isLogged={isLogged} onLogout={handleLogout} />}
+      />
+      <Route
+        path="/user/:id"
+        element={<UserPage isLogged={isLogged} onLogout={handleLogout} />}
+      />
+      <Route
+        path="/modify/:id"
+        element={<ModifyUser isLogged={isLogged} onLogout={handleLogout} />}
+      />
+      <Route
+        path="/modifyProduct/:id"
+        element={<ModifyProduct isLogged={isLogged} onLogout={handleLogout} />}
+      />
+      <Route
+        path="*"
+        element={<NotFoundPage isLogged={isLogged} onLogout={handleLogout} />}
+      />
     </Routes>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '../../layout/Layout';
 
-const UserPage = () => {
+const UserPage = ({ ...props }) => {
   return (
-    <Layout>
+    <Layout {...props}>
       <div>User</div>
     </Layout>
   );
