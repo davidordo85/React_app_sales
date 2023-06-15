@@ -48,8 +48,6 @@ function App({ isInitiallyLogged }) {
 
   const handleLogout = () => setIsLogged(false);
 
-  console.log(user);
-
   return (
     <Routes>
       <Route

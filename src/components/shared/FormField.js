@@ -11,13 +11,13 @@ function FormField({ label, ...props }) {
         <InputGroup.Text>
           {/* TODO: este ternario de abajo solo tiene email name birthdate y si no el de contraseña */}
           {label === 'Email' ? (
-            <FaLock />
+            <FaEnvelope />
           ) : label === 'Birthdate' ? (
             <FaCalendarAlt />
           ) : label === 'Name' ? (
             <FaUser />
           ) : (
-            <FaEnvelope />
+            <FaLock />
           )}
         </InputGroup.Text>
         <Form.Control {...props} />
