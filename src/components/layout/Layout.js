@@ -6,7 +6,7 @@ function Layout({ children, ...props }) {
   return (
     <div className="layout">
       <Header className="" {...props} />
-      <main className="">
+      <main className="mb-5">
         <section className="">{children}</section>
       </main>
       {/* TODO: place your footer company */}
