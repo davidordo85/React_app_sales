@@ -14,51 +14,119 @@ import {
   DetailPage,
   MyProducts,
 } from './components';
+import { getUser } from './api/auth';
+import storage from './utils/storage';
+import { configureClient } from './api/client';
 
 function App({ isInitiallyLogged }) {
   const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
-  const handleLogin = () => setIsLogged(true);
+  const [user, setUser] = React.useState({});
+
+  const handleLogin = () => {
+    const accessToken = storage.get('auth');
+    if (accessToken) {
+      configureClient({ accessToken });
+      setIsLogged(true);
+      whatUser();
+    }
+  };
+
+  const whatUser = async () => {
+    try {
+      const user = await getUser();
+      setUser(user);
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
+  };
+
+  React.useEffect(() => {
+    if (isLogged) {
+      whatUser();
+    }
+  }, [isLogged]);
+
   const handleLogout = () => setIsLogged(false);
+
+  console.log(isLogged);
 
   return (
     <Routes>
       <Route
         path="/"
-        element={<IndexPage isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <IndexPage isLogged={isLogged} user={user} onLogout={handleLogout} />
+        }
       />
-      <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+      <Route
+        path="/login"
+        element={<LoginPage onLogin={handleLogin} whatUser={whatUser} />}
+      />
       <Route path="/register" element={<RegisterPage />} />
       <Route
         path="/contact"
-        element={<ContactPage isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <ContactPage
+            isLogged={isLogged}
+            user={user}
+            onLogout={handleLogout}
+          />
+        }
       />
       <Route
         path="/createProduct"
-        element={<CreateProduct isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <CreateProduct
+            isLogged={isLogged}
+            user={user}
+            onLogout={handleLogout}
+          />
+        }
       />
       <Route
         path="/detail/:id"
-        element={<DetailPage isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <DetailPage isLogged={isLogged} user={user} onLogout={handleLogout} />
+        }
       />
       <Route
         path="/user/:id"
-        element={<UserPage isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <UserPage isLogged={isLogged} user={user} onLogout={handleLogout} />
+        }
       />
       <Route
         path="/modify/:id"
-        element={<ModifyUser isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <ModifyUser isLogged={isLogged} user={user} onLogout={handleLogout} />
+        }
       />
       <Route
         path="/myProducts/:id"
-        element={<MyProducts isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <MyProducts isLogged={isLogged} user={user} onLogout={handleLogout} />
+        }
       />
       <Route
         path="/modifyProduct/:id"
-        element={<ModifyProduct isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <ModifyProduct
+            isLogged={isLogged}
+            user={user}
+            onLogout={handleLogout}
+          />
+        }
       />
       <Route
         path="*"
-        element={<NotFoundPage isLogged={isLogged} onLogout={handleLogout} />}
+        element={
+          <NotFoundPage
+            isLogged={isLogged}
+            user={user}
+            onLogout={handleLogout}
+          />
+        }
       />
     </Routes>
   );

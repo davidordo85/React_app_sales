@@ -5,9 +5,7 @@ import { login } from '../../../api/auth';
 import MessageError from '../../shared/MessageAlert';
 import LoadingSpinner from '../../shared/LoadingSpinner';
 
-//TODO: falta mejorar el botón, poner enlace a registro y recordar contraseña
-
-function LoginPage({ onLogin }) {
+function LoginPage({ onLogin, whatUser }) {
   const [error, setError] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
   const navigate = useNavigate();
@@ -19,6 +17,7 @@ function LoginPage({ onLogin }) {
     try {
       await login(credentials);
       onLogin();
+      whatUser();
       navigate('/');
     } catch (error) {
       setError(error);
