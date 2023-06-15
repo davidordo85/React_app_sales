@@ -14,7 +14,7 @@ import {
   DetailPage,
   MyProducts,
 } from './components';
-import { getUser } from './api/auth';
+import { getUser, logout } from './api/auth';
 import storage from './utils/storage';
 import { configureClient } from './api/client';
 
@@ -31,25 +31,24 @@ function App({ isInitiallyLogged }) {
     }
   };
 
-  const whatUser = async () => {
+  const whatUser = React.useCallback(async () => {
     try {
       const user = await getUser();
       setUser(user);
     } catch (error) {
-      console.log(error);
-    } finally {
+      logout().then(handleLogout);
     }
-  };
+  }, []);
 
   React.useEffect(() => {
     if (isLogged) {
       whatUser();
     }
-  }, [isLogged]);
+  }, [isLogged, whatUser]);
 
   const handleLogout = () => setIsLogged(false);
 
-  console.log(isLogged);
+  console.log(user);
 
   return (
     <Routes>

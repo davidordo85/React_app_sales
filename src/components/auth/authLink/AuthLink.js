@@ -3,14 +3,14 @@ import { Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { logout } from '../../../api/auth';
 
-function Auth({ isLogged, onLogout }) {
+function Auth({ isLogged, onLogout, user }) {
   const handleLogoutClick = () => {
     logout().then(onLogout);
   };
 
   return (
     <Nav>
-      {isLogged ? (
+      {isLogged && user.userRole === 'seller' ? (
         <NavDropdown title="User" id="responsive-nav-dropdown">
           <NavDropdown.Item as={Link} to="/user/:id">
             My profile
@@ -26,6 +26,20 @@ function Auth({ isLogged, onLogout }) {
           <NavDropdown.Divider />
           <NavDropdown.Item as={Link} to="/createProduct">
             Create products
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item onClick={handleLogoutClick}>
+            Log out
+          </NavDropdown.Item>
+        </NavDropdown>
+      ) : isLogged ? (
+        <NavDropdown title="User" id="responsive-nav-dropdown">
+          <NavDropdown.Item as={Link} to="/user/:id">
+            My profile
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to="/modify/:id">
+            Modify profile
           </NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item onClick={handleLogoutClick}>
