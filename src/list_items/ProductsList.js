@@ -14,7 +14,6 @@ const ProductsList = ({ products }) => {
   );
 
   const handleClick = (e, productId) => {
-    console.log(e);
     navigate(`detail/${productId}`);
   };
   return (

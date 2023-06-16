@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Badge, Carousel } from 'react-bootstrap';
-import { Rating, LoadingSpinner } from '../components/shared';
+import { Card, Carousel } from 'react-bootstrap';
+import { Rating, LoadingSpinner, Badge } from '../components/shared';
 
 const ListItems = ({
   name,
@@ -35,16 +35,23 @@ const ListItems = ({
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            {categories.map((type, index) => (
-              <Badge key={index} variant="secondary">
-                {type}
-              </Badge>
-            ))}
+            <div className="d-flex justify-content-between">
+              {categories.map((category, index) => (
+                <Badge key={index} index={index} text={category} />
+              ))}
+            </div>
           </Card.Body>
           <Card.Footer>
             <div className="d-flex justify-content-between">
               <div>
-                <small className="text-muted">Price: ${price}</small>
+                <small className="text-muted">
+                  Price:{' '}
+                  {price.toLocaleString('es-ES', {
+                    style: 'currency',
+                    currency: 'EUR',
+                  })}
+                </small>
+
                 <br />
                 <small className="text-muted">Quantity: {quantity}</small>
               </div>
