@@ -11,9 +11,10 @@ const ListItems = ({
   rating,
   categories,
   isLoading,
+  onClick,
 }) => {
   return (
-    <Card className="m-2" style={{ width: '18rem' }}>
+    <Card onClick={onClick} className="m-2" style={{ width: '18rem' }}>
       {isLoading ? (
         <LoadingSpinner />
       ) : (

@@ -13,7 +13,7 @@ function Header({ ...props }) {
       bg="dark"
       variant="dark"
       expand="lg"
-      className="w-100 p-3"
+      className="w-100 p-3 mb-5"
       collapseOnSelect
     >
       <Navbar.Brand as={Link} to="/">
