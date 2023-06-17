@@ -13,25 +13,21 @@ const ListItems = ({
   isLoading,
   onClick,
 }) => {
+  const randomIndex = Math.floor(Math.random() * images.length); // Obtener un índice aleatorio
+  const randomPhoto = images[randomIndex]; // Obtener la imagen aleatoria
   return (
     <Card onClick={onClick} className="m-2" style={{ width: '18rem' }}>
       {isLoading ? (
         <LoadingSpinner />
       ) : (
         <>
-          <Carousel>
-            {images.map((photo, index) => (
-              <Carousel.Item key={index}>
-                <div className="carousel-image-container">
-                  <img
-                    className="carousel-image"
-                    src={`${process.env.REACT_APP_API_BASE_URL}/images/${photo}`}
-                    alt={`Item ${index + 1}`}
-                  />
-                </div>
-              </Carousel.Item>
-            ))}
-          </Carousel>
+          <div className="carousel-image-container">
+            <img
+              className="carousel-image"
+              src={`${process.env.REACT_APP_API_BASE_URL}/images/${randomPhoto}`}
+              alt={`Item ${randomIndex + 1}`}
+            />
+          </div>
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{description}</Card.Text>
