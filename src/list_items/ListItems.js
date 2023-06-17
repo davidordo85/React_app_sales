@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Carousel } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Rating, LoadingSpinner, Badge } from '../components/shared';
 
 const ListItems = ({
