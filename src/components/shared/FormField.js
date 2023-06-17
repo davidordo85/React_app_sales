@@ -1,7 +1,16 @@
 import React from 'react';
 
 import { Form, InputGroup } from 'react-bootstrap';
-import { FaLock, FaCalendarAlt, FaUser, FaEnvelope } from 'react-icons/fa';
+import {
+  FaLock,
+  FaCalendarAlt,
+  FaUser,
+  FaEnvelope,
+  FaMoneyBillAlt,
+  FaBoxes,
+  FaFileAlt,
+  FaImages,
+} from 'react-icons/fa';
 
 function FormField({ label, ...props }) {
   return (
@@ -16,6 +25,14 @@ function FormField({ label, ...props }) {
             <FaCalendarAlt />
           ) : label === 'Name' ? (
             <FaUser />
+          ) : label === 'Price' ? (
+            <FaMoneyBillAlt />
+          ) : label === 'Quantity' ? (
+            <FaBoxes />
+          ) : label === 'Description' ? (
+            <FaFileAlt />
+          ) : label === 'Images' ? (
+            <FaImages />
           ) : (
             <FaLock />
           )}

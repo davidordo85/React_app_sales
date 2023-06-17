@@ -107,13 +107,6 @@ function CreateProductForm({ onSubmit }) {
         onChange={handleChange}
         required
       />
-      <FormField
-        type="text"
-        name="categories"
-        label="Categories"
-        value={categories} // Unir categorías con una coma y espacio
-        onChange={handleChange}
-      />
     </Form>
   );
 }
