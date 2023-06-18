@@ -17,10 +17,12 @@ import {
 import { getUser, logout } from './api/auth';
 import storage from './utils/storage';
 import { configureClient } from './api/client';
+import { getCategories } from './api/Items';
 
 function App({ isInitiallyLogged }) {
   const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
   const [user, setUser] = React.useState({});
+  const [categories, setCategories] = React.useState([]);
 
   const handleLogin = () => {
     const accessToken = storage.get('auth');
@@ -30,6 +32,15 @@ function App({ isInitiallyLogged }) {
       whatUser();
     }
   };
+
+  const arrayCategories = React.useCallback(async () => {
+    try {
+      const categories = await getCategories();
+      setCategories(categories.result);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   const whatUser = React.useCallback(async () => {
     try {
@@ -41,10 +52,11 @@ function App({ isInitiallyLogged }) {
   }, []);
 
   React.useEffect(() => {
+    arrayCategories();
     if (isLogged) {
       whatUser();
     }
-  }, [isLogged, whatUser]);
+  }, [isLogged, whatUser, arrayCategories]);
 
   const handleLogout = () => setIsLogged(false);
 
@@ -78,6 +90,7 @@ function App({ isInitiallyLogged }) {
             isLogged={isLogged}
             user={user}
             onLogout={handleLogout}
+            tags={categories}
           />
         }
       />

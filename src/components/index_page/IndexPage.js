@@ -26,6 +26,7 @@ const IndexPage = ({ ...props }) => {
       setIsLoading(false);
     }
   };
+
   return (
     <Layout {...props}>
       <div className="container">
