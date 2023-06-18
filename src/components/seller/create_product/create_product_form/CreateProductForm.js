@@ -1,8 +1,11 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Button, Form, InputGroup } from 'react-bootstrap';
 import FormField from '../../../shared/FormField';
+import SelectCategories from '../../../shared/SelectCategories';
+import { FaFolder } from 'react-icons/fa';
 
-function CreateProductForm({ onSubmit }) {
+function CreateProductForm({ onSubmit, tags }) {
+  const [categories, setCategories] = React.useState([]);
   const [newProduct, setNewProduct] = React.useState({
     name: '',
     price: 0.1,
@@ -19,27 +22,12 @@ function CreateProductForm({ onSubmit }) {
       let newNewProduct;
 
       if (type === 'file') {
-        // Si es un campo de imágenes
+        const fileList = Array.from(files);
         newNewProduct = {
           ...oldNewProduct,
-          [name]: files,
-        };
-      } else if (name === 'categories') {
-        // Si es el campo de categorías
-        const categoriesArray = value
-          .split(',')
-          .map(category => category.trim())
-          .filter(category => category !== '');
-
-        newNewProduct = {
-          ...oldNewProduct,
-          categories:
-            categoriesArray.length > 1
-              ? categoriesArray
-              : categoriesArray[0] || [],
+          [name]: fileList,
         };
       } else {
-        // Si es un campo de entrada regular
         newNewProduct = {
           ...oldNewProduct,
           [name]: value,
@@ -50,13 +38,20 @@ function CreateProductForm({ onSubmit }) {
     });
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    onSubmit(newProduct);
+  const handleCategories = selectedOptions => {
+    setCategories([].slice.call(selectedOptions).map(item => item.value));
   };
 
-  const { name, price, quantity, description, categories } = newProduct;
-  console.log(newProduct);
+  const handleSubmit = event => {
+    event.preventDefault();
+    const newProductData = {
+      ...newProduct,
+      categories: categories,
+    };
+    onSubmit(newProductData);
+  };
+
+  const { name, price, quantity, description } = newProduct;
   return (
     <Form onSubmit={handleSubmit}>
       <FormField
@@ -107,6 +102,21 @@ function CreateProductForm({ onSubmit }) {
         onChange={handleChange}
         required
       />
+      <InputGroup>
+        <InputGroup.Text>
+          <FaFolder />
+        </InputGroup.Text>
+        <SelectCategories
+          categories={tags}
+          onChange={handleCategories}
+          selectedCategories={categories}
+        />
+      </InputGroup>
+      <div className="d-flex justify-content-center m-2">
+        <Button className="w-100" variant="warning" type="submit">
+          Create product
+        </Button>
+      </div>
     </Form>
   );
 }
