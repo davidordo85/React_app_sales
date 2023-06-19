@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import FormSearch from '../form_search/FormSearch';
 import AuthLink from '../auth/authLink/AuthLink';
 
-import { Nav, Navbar, Image } from 'react-bootstrap';
+import { Navbar, Image } from 'react-bootstrap';
 
-function Header({ ...props }) {
+function Header({ tags, ...props }) {
   return (
     <Navbar
       bg="dark"
@@ -25,11 +25,8 @@ function Header({ ...props }) {
         className="justify-content-around"
       >
         <div className="m-1">
-          <FormSearch />
+          <FormSearch tags={tags} />
         </div>
-        <Nav className="mr-auto">
-          {/* Agrega aquí tus elementos de categorías */}
-        </Nav>
         <AuthLink {...props} />
       </Navbar.Collapse>
     </Navbar>

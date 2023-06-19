@@ -28,7 +28,6 @@ const UserPage = ({ ...props }) => {
       setIsLoading(false);
     }
   };
-  console.log(myData);
 
   return (
     <Layout {...props}>

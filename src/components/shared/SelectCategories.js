@@ -19,6 +19,7 @@ function SelectCategories({ categories, onChange, selectedCategories }) {
         value={selectCategories}
         options={options}
         isMulti
+        placeholder={'All Categories'}
       />
     </div>
   );

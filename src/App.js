@@ -65,7 +65,12 @@ function App({ isInitiallyLogged }) {
       <Route
         path="/"
         element={
-          <IndexPage isLogged={isLogged} user={user} onLogout={handleLogout} />
+          <IndexPage
+            isLogged={isLogged}
+            user={user}
+            onLogout={handleLogout}
+            tags={categories}
+          />
         }
       />
       <Route
@@ -80,6 +85,7 @@ function App({ isInitiallyLogged }) {
             isLogged={isLogged}
             user={user}
             onLogout={handleLogout}
+            tags={categories}
           />
         }
       />
@@ -97,13 +103,23 @@ function App({ isInitiallyLogged }) {
       <Route
         path="/detail/:id"
         element={
-          <DetailPage isLogged={isLogged} user={user} onLogout={handleLogout} />
+          <DetailPage
+            isLogged={isLogged}
+            user={user}
+            onLogout={handleLogout}
+            tags={categories}
+          />
         }
       />
       <Route
         path="/user/:id"
         element={
-          <UserPage isLogged={isLogged} user={user} onLogout={handleLogout} />
+          <UserPage
+            isLogged={isLogged}
+            user={user}
+            onLogout={handleLogout}
+            tags={categories}
+          />
         }
       />
       <Route
@@ -135,6 +151,7 @@ function App({ isInitiallyLogged }) {
             isLogged={isLogged}
             user={user}
             onLogout={handleLogout}
+            tags={categories}
           />
         }
       />
