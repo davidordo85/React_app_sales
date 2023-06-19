@@ -12,7 +12,7 @@ function Auth({ isLogged, onLogout, user }) {
     <Nav>
       {isLogged && user.userRole === 'seller' ? (
         <NavDropdown title="User" id="responsive-nav-dropdown">
-          <NavDropdown.Item as={Link} to="/user/:id">
+          <NavDropdown.Item as={Link} to={`/user/${user.userId}`}>
             My profile
           </NavDropdown.Item>
           <NavDropdown.Divider />
@@ -34,7 +34,7 @@ function Auth({ isLogged, onLogout, user }) {
         </NavDropdown>
       ) : isLogged ? (
         <NavDropdown title="User" id="responsive-nav-dropdown">
-          <NavDropdown.Item as={Link} to="/user/:id">
+          <NavDropdown.Item as={Link} to={`/user/${user.userId}`}>
             My profile
           </NavDropdown.Item>
           <NavDropdown.Divider />

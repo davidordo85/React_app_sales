@@ -22,6 +22,10 @@ export const getUser = () => {
   return client.get(`${authBaseUrl}/getUser`);
 };
 
+export const getMe = id => {
+  return client.get(`${authBaseUrl}/${id}`);
+};
+
 export const logout = () => {
   return Promise.resolve().then(() => {
     resetClient();
