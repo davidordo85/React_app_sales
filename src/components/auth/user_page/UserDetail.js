@@ -20,18 +20,35 @@ const UserDetail = ({ user, isLoading }) => {
           <LoadingSpinner />
         ) : (
           <div>
-            {' '}
-            <h2>User Details</h2>
-            <div>
-              <strong>Name:</strong> {user.name}
+            <div className="d-flex flex-column align-items-center">
+              <h2>User Details</h2>
+              <div>
+                <strong>Name:</strong> {user.name}
+              </div>
+              <div>
+                <strong>Email:</strong> {user.email}
+              </div>
+              <div>
+                <strong>Birthdate:</strong> {formatBirthdate(user.birthdate)}
+              </div>
             </div>
-            <div>
-              <strong>Email:</strong> {user.email}
+            <div className="d-flex align-items-center mt-4 mb-4">
+              <div className="flex-grow-1 border-top border-2"></div>
             </div>
-            <div>
-              <strong>Birthdate:</strong> {formatBirthdate(user.birthdate)}
+            <div className="d-flex flex-column">
+              <div className="d-flex flex-column align-items-center mb-3">
+                <p className="">Modify your profile:</p>
+                <Button className="" variant="primary">
+                  Edit Profile
+                </Button>
+              </div>
+              <div className="d-flex flex-column align-items-center">
+                <p>If you have a company and products to sell, click here:</p>
+                <Button className="" variant="primary">
+                  Add your products
+                </Button>
+              </div>
             </div>
-            <Button variant="primary">Edit Profile</Button>
           </div>
         )}
       </div>
