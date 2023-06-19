@@ -1,18 +1,8 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { LoadingSpinner } from '../../shared';
+import { LoadingSpinner, FormattedDate } from '../../shared';
 
 const UserDetail = ({ user, isLoading }) => {
-  // Función para formatear la fecha de nacimiento
-  const formatBirthdate = birthdate => {
-    const date = new Date(birthdate);
-    return date.toLocaleDateString('es-ES', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
-
   return (
     <div className="user-detail">
       <div>
@@ -28,8 +18,9 @@ const UserDetail = ({ user, isLoading }) => {
               <div>
                 <strong>Email:</strong> {user.email}
               </div>
-              <div>
-                <strong>Birthdate:</strong> {formatBirthdate(user.birthdate)}
+              <div className="d-flex">
+                <strong>Birthdate: </strong>
+                {<FormattedDate date={user.birthdate} />}
               </div>
             </div>
             <div className="d-flex align-items-center mt-4 mb-4">
