@@ -31,7 +31,7 @@ const ListItems = ({
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex flex-column">
               {categories.map((category, index) => (
                 <Badge key={index} index={index} text={category} />
               ))}

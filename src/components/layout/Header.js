@@ -6,12 +6,12 @@ import FormSearch from '../form_search/FormSearch';
 import AuthLink from '../auth/authLink/AuthLink';
 
 import { Navbar, Image } from 'react-bootstrap';
+import Cart from '../shoping-cart/Cart';
 
 function Header({ tags, ...props }) {
   return (
     <Navbar
-      bg="dark"
-      variant="dark"
+      style={{ backgroundColor: '#00ADB5' }}
       expand="lg"
       className="w-100 p-3 mb-5"
       collapseOnSelect
@@ -28,6 +28,7 @@ function Header({ tags, ...props }) {
           <FormSearch tags={tags} />
         </div>
         <AuthLink {...props} />
+        <Cart />
       </Navbar.Collapse>
     </Navbar>
   );
