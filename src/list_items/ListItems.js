@@ -16,7 +16,11 @@ const ListItems = ({
   const randomIndex = Math.floor(Math.random() * images.length); // Obtener un índice aleatorio
   const randomPhoto = images[randomIndex]; // Obtener la imagen aleatoria
   return (
-    <Card onClick={onClick} className="m-2" style={{ width: '18rem' }}>
+    <Card
+      onClick={onClick}
+      className="m-2"
+      style={{ width: '18rem', cursor: 'pointer' }}
+    >
       {isLoading ? (
         <LoadingSpinner />
       ) : (
