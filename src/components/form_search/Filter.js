@@ -3,7 +3,7 @@ import { Form, FormControl, Button } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
 import SelectCategories from '../shared/SelectCategories';
 
-function FormSearch({ tags }) {
+function Filter({ tags }) {
   const [sections, setSections] = React.useState([]);
 
   const handleCategories = selectedOptions => {
@@ -30,4 +30,4 @@ function FormSearch({ tags }) {
   );
 }
 
-export default FormSearch;
+export default Filter;

@@ -2,7 +2,7 @@ import React from 'react';
 // TODO: place your company logo
 import logo from '../../logo.svg';
 import { Link } from 'react-router-dom';
-import FormSearch from '../form_search/FormSearch';
+import Filter from '../form_search/Filter';
 import AuthLink from '../auth/authLink/AuthLink';
 
 import { Navbar, Image } from 'react-bootstrap';
@@ -25,7 +25,7 @@ function Header({ tags, ...props }) {
         className="justify-content-around"
       >
         <div className="m-1">
-          <FormSearch tags={tags} />
+          <Filter tags={tags} />
         </div>
         <AuthLink {...props} />
         <Cart />

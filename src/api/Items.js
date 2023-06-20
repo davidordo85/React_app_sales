@@ -7,6 +7,27 @@ export const getProducts = () => {
   return client.get(url);
 };
 
+export const getProductFilters = filters => {
+  let filterUrl = '';
+  let isFirstParam = false;
+  Object.keys(filters).map(filter => {
+    let operator = !isFirstParam ? '?' : '&';
+    if (filter === 'price' && filters[filter] === 'minor') {
+      filterUrl += `${operator}sort=${filter}`;
+      isFirstParam = true;
+    } else if (filter === 'price' && filters[filter] === 'major') {
+      filterUrl += `${operator}sort=-${filter}`;
+      isFirstParam = true;
+    } else if (filter !== 'price' && filters[filter].length > 0) {
+      filterUrl += `${operator}${filter}=${filters[filter]}`;
+      isFirstParam = true;
+    }
+    return filterUrl;
+  });
+  const url = `${itemsBaseUrl}/products${filterUrl}`;
+  return client.get(url);
+};
+
 export const getProduct = id => {
   const url = `${itemsBaseUrl}/products/${id}`;
   return client.get(url);
