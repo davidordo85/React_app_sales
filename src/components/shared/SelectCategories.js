@@ -13,7 +13,7 @@ function SelectCategories({ categories, onChange, selectedCategories }) {
   }));
 
   return (
-    <div style={{ width: '97.5%' }}>
+    <div>
       <Select
         onChange={onChange}
         value={selectCategories}

@@ -1,0 +1,18 @@
+.filter-container {
+    display: flex;
+    align-items: center;
+}
+
+.filter-button {
+    padding: 0.5rem;
+}
+
+.filter-input {
+    width: 100%;
+    max-width: 12.5rem;
+}
+
+.filter-select {
+    width: 100%;
+    max-width: 12.5rem;
+}

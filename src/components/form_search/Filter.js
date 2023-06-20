@@ -2,13 +2,14 @@ import React from 'react';
 import { Form, FormControl, Button } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
 import SelectCategories from '../shared/SelectCategories';
+import './Filter.css'; // Archivo CSS personalizado para el componente Filter
 
 function Filter({ tags }) {
   const [sections, setSections] = React.useState([]);
   const [orderPrice, setOrderPrice] = React.useState(false);
 
   const handleChange = () => {
-    setOrderPrice(!orderPrice);
+    setOrderPrice(prevOrderPrice => !prevOrderPrice);
     // Aquí puedes realizar la lógica para buscar los productos según la selección de orden
   };
 
@@ -21,22 +22,21 @@ function Filter({ tags }) {
     : 'Sort from lowest to highest';
 
   return (
-    <Form>
-      <div className="d-flex">
-        <div className="input-group ">
-          <div className="input-group-append">
-            <Button variant="info" className="mr-1">
-              <FaSearch />
-            </Button>
-          </div>
-          <FormControl type="text" placeholder="Search" className="ml-2" />
-        </div>
-        <SelectCategories
-          categories={tags}
-          onChange={handleCategories}
-          selectedCategories={sections}
-        />
-      </div>
+    <Form className="filter-container">
+      <Button variant="info" className="filter-item filter-button">
+        <FaSearch />
+      </Button>
+      <FormControl
+        type="text"
+        placeholder="Search"
+        className="filter-item filter-input"
+      />
+      <SelectCategories
+        categories={tags}
+        onChange={handleCategories}
+        selectedCategories={sections}
+        className="filter-item filter-select"
+      />
       <Form.Check
         name="orderPrice"
         type="checkbox"
@@ -45,7 +45,7 @@ function Filter({ tags }) {
         onChange={handleChange}
         checked={orderPrice}
         id="custom-checkbox"
-        className="form-switch"
+        className="form-switch filter-item"
       />
     </Form>
   );
