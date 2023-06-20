@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { LoadingSpinner, FormattedDate } from '../../shared';
+import Separator from '../../shared/Separator';
 
 const UserDetail = ({ user, isLoading }) => {
   return (
@@ -18,14 +19,15 @@ const UserDetail = ({ user, isLoading }) => {
               <div>
                 <strong>Email:</strong> {user.email}
               </div>
+              <div>
+                <strong>Name company: </strong> {user.companyName}
+              </div>
               <div className="d-flex">
                 <strong>Birthdate: </strong>
                 {<FormattedDate date={user.birthdate} />}
               </div>
             </div>
-            <div className="d-flex align-items-center mt-4 mb-4">
-              <div className="flex-grow-1 border-top border-2"></div>
-            </div>
+            <Separator />
             <div className="d-flex flex-column">
               <div className="d-flex flex-column align-items-center mb-3">
                 <p className="">Modify your profile:</p>
@@ -40,6 +42,7 @@ const UserDetail = ({ user, isLoading }) => {
                 </Button>
               </div>
             </div>
+            <Separator />
           </div>
         )}
       </div>
