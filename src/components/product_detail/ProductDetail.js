@@ -57,8 +57,8 @@ const ProductDetails = ({ product, isLoading }) => {
               <FormattedDate date={product.createdAt} />
             </div>
             <div>
-              <h4>Created By:</h4>
-              <p>{product.createdBy}</p>
+              <h4>Product of:</h4>
+              <p>{product.creatorCompany}</p>
             </div>
           </div>
         </div>
