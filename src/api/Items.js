@@ -8,7 +8,7 @@ export const getProducts = () => {
 };
 
 export const getProductFilters = filters => {
-  const { name, price, categories } = filters;
+  const { name, price, categories, creatorCompany } = filters;
 
   const params = [];
 
@@ -22,15 +22,18 @@ export const getProductFilters = filters => {
     params.push('sort=price');
   }
 
-  if (categories.length > 0) {
+  if (categories && categories.length > 0) {
     const categoriesParam = categories.map(
       category => `categories=${encodeURIComponent(category)}`,
     );
     params.push(...categoriesParam);
   }
 
-  const filterUrl = params.length > 0 ? `?${params.join('&')}` : '';
+  if (creatorCompany) {
+    params.push(`creatorCompany=${encodeURIComponent(creatorCompany)}`);
+  }
 
+  const filterUrl = params.length > 0 ? `?${params.join('&')}` : '';
   const url = `${itemsBaseUrl}/products${filterUrl}`;
   return client.get(url);
 };
