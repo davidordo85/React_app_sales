@@ -6,6 +6,7 @@ import {
   FormattedDate,
   LoadingSpinner,
 } from '../shared';
+import { Button } from 'react-bootstrap';
 
 const ProductDetails = ({ product, isLoading }) => {
   return (
@@ -60,6 +61,11 @@ const ProductDetails = ({ product, isLoading }) => {
               <h4>Product of:</h4>
               <p>{product.creatorCompany}</p>
             </div>
+          </div>
+
+          <div>
+            <Button variant="warning">Modify Product</Button>
+            <Button variant="danger">Delete Product</Button>
           </div>
         </div>
       )}
