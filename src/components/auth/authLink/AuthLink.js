@@ -11,7 +11,7 @@ function Auth({ isLogged, onLogout, user }) {
   return (
     <Nav>
       <NavDropdown title="User" id="responsive-nav-dropdown">
-        {isLogged && user.userRole === 'seller' && (
+        {isLogged && (
           <>
             <NavDropdown.Item as={Link} to={`/user/${user.userId}`}>
               My profile
@@ -20,23 +20,16 @@ function Auth({ isLogged, onLogout, user }) {
             <NavDropdown.Item as={Link} to="/modify/:id">
               Modify profile
             </NavDropdown.Item>
+          </>
+        )}
+        {isLogged && user.userRole === 'seller' && (
+          <>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="/createProduct">
               Create products
             </NavDropdown.Item>
           </>
         )}
-        {(isLogged && user.userRole !== 'seller') || !isLogged ? (
-          <>
-            <NavDropdown.Item as={Link} to={`/user/${user.userId}`}>
-              My profile
-            </NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} to="/modify/:id">
-              Modify profile
-            </NavDropdown.Item>
-          </>
-        ) : null}
         {!isLogged && (
           <>
             <NavDropdown.Item as={Link} to="/login">
@@ -48,14 +41,14 @@ function Auth({ isLogged, onLogout, user }) {
             </NavDropdown.Item>
           </>
         )}
-        {(isLogged && user.userRole === 'seller') || !isLogged ? (
+        {(isLogged || user.userRole === 'seller') && (
           <>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={handleLogoutClick}>
               Log out
             </NavDropdown.Item>
           </>
-        ) : null}
+        )}
       </NavDropdown>
     </Nav>
   );
