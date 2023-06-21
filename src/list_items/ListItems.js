@@ -10,6 +10,7 @@ const ListItems = ({
   description,
   rating,
   categories,
+  creatorCompany,
   isLoading,
   onClick,
 }) => {
@@ -41,8 +42,8 @@ const ListItems = ({
               ))}
             </div>
           </Card.Body>
-          <Card.Footer>
-            <div className="d-flex justify-content-between">
+          <Card.Footer className="d-flex flex-column align-item-center justify-content-center ">
+            <div>
               <div>
                 <small className="text-muted">
                   Price:{' '}
@@ -54,7 +55,9 @@ const ListItems = ({
 
                 <br />
                 <small className="text-muted">Quantity: {quantity}</small>
+                <br />
               </div>
+              <small className="text-muted">Product of: {creatorCompany}</small>
               <Rating rating={rating} />
             </div>
           </Card.Footer>

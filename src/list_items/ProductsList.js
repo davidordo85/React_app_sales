@@ -1,11 +1,12 @@
 import React from 'react';
 import ListItems from './ListItems';
 import { Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import NoResultsMessage from '../components/shared/NoResultMessage';
 
 const ProductsList = ({ products }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const renderProducts = product => (
     <ListItems
       key={product._id}
@@ -15,11 +16,15 @@ const ProductsList = ({ products }) => {
   );
 
   const handleClick = (e, productId) => {
-    navigate(`detail/${productId}`);
+    const rootPath = location.pathname.split('/')[1];
+    const newPath = `/${rootPath}/detail/${productId}`;
+    const newRoute = newPath.replace(`/${rootPath}`, '');
+    navigate(newRoute);
   };
+
   return (
     <>
-      {products.length !== 0 ? (
+      {products && products.length !== 0 ? (
         <Row className="justify-content-center">
           {products.map(renderProducts)}
         </Row>
