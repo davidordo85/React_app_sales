@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import './SelectCategories.css';
 
 function SelectCategories({ categories, onChange, selectedCategories }) {
   const options = categories.map(category => ({
@@ -13,15 +14,14 @@ function SelectCategories({ categories, onChange, selectedCategories }) {
   }));
 
   return (
-    <div>
-      <Select
-        onChange={onChange}
-        value={selectCategories}
-        options={options}
-        isMulti
-        placeholder={'All Categories'}
-      />
-    </div>
+    <Select
+      onChange={onChange}
+      value={selectCategories}
+      options={options}
+      isMulti
+      placeholder={'All Categories'}
+      className="custom-select"
+    />
   );
 }
 

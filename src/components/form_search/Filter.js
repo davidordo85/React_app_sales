@@ -7,10 +7,10 @@ import './Filter.css';
 
 function Filter({ tags, onSubmit }) {
   // TODO: casos de filtrado del modelo del backend
-  // name
-  // price
+  // name complete
+  // price complete
   // rating
-  // categories
+  // categories complete
   // category
   // createdAt
   // companyName
@@ -56,20 +56,15 @@ function Filter({ tags, onSubmit }) {
     onSubmit(filter);
   };
 
+  const { name, categories, price } = filter;
+
   return (
-    <Form className="filter-container" onSubmit={handleSubmit}>
-      <Button
-        variant="info"
-        type="submit"
-        className="filter-item filter-button"
-      >
-        <FaSearch />
-      </Button>
+    <Form className="filter-container " onSubmit={handleSubmit}>
       <FormControl
         name="name"
         type="text"
-        placeholder="Search"
-        value={filter.name}
+        placeholder="Search product"
+        value={name}
         onChange={handleChange}
         className="filter-item filter-input"
       />
@@ -77,7 +72,7 @@ function Filter({ tags, onSubmit }) {
         name="categories"
         categories={tags}
         onChange={selectedOptions => handleChange(null, selectedOptions)}
-        selectedCategories={filter.categories}
+        selectedCategories={categories}
         className="filter-item filter-select"
       />
 
@@ -87,10 +82,17 @@ function Filter({ tags, onSubmit }) {
         label={label}
         variant="warning"
         onChange={handleChange}
-        checked={filter.price}
+        checked={price}
         id="custom-checkbox"
         className="form-switch filter-item"
       />
+      <Button
+        variant="info"
+        type="submit"
+        className="filter-item filter-button"
+      >
+        <FaSearch />
+      </Button>
 
       <Button
         variant="link"

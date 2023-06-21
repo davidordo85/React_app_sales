@@ -1,0 +1,5 @@
+.custom-select {
+    flex-grow: 1;
+    width: auto;
+    min-width: 0;
+}

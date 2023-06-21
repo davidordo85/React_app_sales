@@ -1,18 +1,36 @@
 .filter-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
+
 }
 
-.filter-button {
-    padding: 0.5rem;
-}
 
-.filter-input {
-    width: 100%;
-    max-width: 12.5rem;
-}
 
-.filter-select {
-    width: 100%;
-    max-width: 12.5rem;
+@media (min-width: 992px) {
+    .filter-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 0rem;
+    }
+
+    .filter-container>* {
+        margin-right: 0.75rem;
+    }
+
+    .filter-button {
+        padding: 0.5rem;
+    }
+
+    .filter-input {
+        width: 100%;
+        max-width: 12rem;
+    }
+
+    .filter-select {
+        width: 100%;
+        max-width: 12rem;
+    }
 }
