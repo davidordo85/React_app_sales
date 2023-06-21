@@ -2,6 +2,7 @@ import React from 'react';
 import ListItems from './ListItems';
 import { Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import NoResultsMessage from '../components/shared/NoResultMessage';
 
 const ProductsList = ({ products }) => {
   const navigate = useNavigate();
@@ -17,7 +18,15 @@ const ProductsList = ({ products }) => {
     navigate(`detail/${productId}`);
   };
   return (
-    <Row className="justify-content-center">{products.map(renderProducts)}</Row>
+    <>
+      {products.length !== 0 ? (
+        <Row className="justify-content-center">
+          {products.map(renderProducts)}
+        </Row>
+      ) : (
+        <NoResultsMessage />
+      )}
+    </>
   );
 };
 

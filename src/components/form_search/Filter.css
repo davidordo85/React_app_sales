@@ -6,8 +6,6 @@
 
 }
 
-
-
 @media (min-width: 992px) {
     .filter-container {
         display: flex;
@@ -17,7 +15,7 @@
     }
 
     .filter-container>* {
-        margin-right: 0.75rem;
+        margin-right: 0.25rem;
     }
 
     .filter-button {
