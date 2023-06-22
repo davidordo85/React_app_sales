@@ -2,8 +2,12 @@ import React from 'react';
 import Layout from '../layout/Layout';
 import { useParams } from 'react-router-dom';
 import { getProduct } from '../../api/Items';
-import MessageError from '../shared/MessageAlert';
+import { MessageAlert } from '../shared';
 import ProductDetails from './ProductDetail';
+
+// TODO: falta mejorar la visualizacion y que funcionen los botones de borrar y modificar producto
+// para que aparezcan los botones tengo que comprobar la id del usuario creador del producto y del
+// usuario que esta autenticado, si coinciden aparecen los botones
 
 const DetailPage = ({ ...props }) => {
   const [product, setProduct] = React.useState({
@@ -42,7 +46,7 @@ const DetailPage = ({ ...props }) => {
         <ProductDetails product={product} isLoading={isLoading} />
       </div>
       {error ? (
-        <MessageError message={error.message} onClick={resetError} />
+        <MessageAlert message={error.message} onClick={resetError} />
       ) : null}
     </Layout>
   );

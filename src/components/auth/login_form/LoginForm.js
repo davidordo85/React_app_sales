@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-import FormField from '../../shared/FormField';
+import { FormField } from '../../shared';
 
 const LoginForm = ({ onSubmit }) => {
   const [credentials, setCredentials] = React.useState({

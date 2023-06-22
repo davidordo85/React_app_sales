@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import { getProducts, getProductFilters } from '../../api/Items';
-import MessageError from '../shared/MessageAlert';
 import ProductsList from '../../list_items/ProductsList';
+import { MessageAlert } from '../shared';
 
 const IndexPage = ({ ...props }) => {
   const [products, setProducts] = React.useState([]);
@@ -47,7 +47,7 @@ const IndexPage = ({ ...props }) => {
           <ProductsList products={products} isLoading={isLoading} />
         </div>
         {error ? (
-          <MessageError message={error.message} onClick={resetError} />
+          <MessageAlert message={error.message} onClick={resetError} />
         ) : null}
       </div>
     </Layout>

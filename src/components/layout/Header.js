@@ -8,6 +8,8 @@ import Filter from '../form_search/Filter';
 import { Navbar, Image } from 'react-bootstrap';
 import Cart from '../shoping-cart/Cart';
 
+// TODO: falta el icono de la empresa y el nombre, aun por decidir
+
 function Header({ tags, handleFilterSubmit, ...props }) {
   return (
     <Navbar

@@ -2,8 +2,8 @@ import React from 'react';
 import Layout from '../../layout/Layout';
 import CreateProductForm from './create_product_form/CreateProductForm';
 import { newProduct } from '../../../api/Items';
-import LoadingSpinner from '../../shared/LoadingSpinner';
-import MessageError from '../../shared/MessageAlert';
+import { LoadingSpinner } from '../../shared';
+import MessageError from '../../shared/message_alert/MessageAlert';
 
 function CreateProduct({ ...props }) {
   const [error, setError] = React.useState(null);

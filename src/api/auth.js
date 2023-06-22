@@ -1,6 +1,5 @@
 import client, { configureClient, resetClient } from './client';
 import storage from '../utils/storage';
-
 const authBaseUrl = '/api/v1/user';
 
 export const login = credentials => {

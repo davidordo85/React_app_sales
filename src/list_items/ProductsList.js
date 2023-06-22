@@ -2,7 +2,7 @@ import React from 'react';
 import ListItems from './ListItems';
 import { Row } from 'react-bootstrap';
 import { useNavigate, useLocation } from 'react-router-dom';
-import NoResultsMessage from '../components/shared/NoResultMessage';
+import { NoResultMessage } from '../components/shared';
 
 const ProductsList = ({ products }) => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const ProductsList = ({ products }) => {
           {products.map(renderProducts)}
         </Row>
       ) : (
-        <NoResultsMessage />
+        <NoResultMessage />
       )}
     </>
   );

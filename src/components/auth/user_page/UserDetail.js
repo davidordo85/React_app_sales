@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { LoadingSpinner, FormattedDate } from '../../shared';
-import Separator from '../../shared/Separator';
+import { LoadingSpinner, FormattedDate, Separator } from '../../shared';
 import ProductsList from '../../../list_items/ProductsList';
 import { getProductFilters } from '../../../api/Items';
 

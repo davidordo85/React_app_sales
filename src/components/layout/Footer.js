@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
+// TODO: queda decidir que se verá aqui
+
 function Footer() {
   return (
     <footer className="text-light py-4" style={{ backgroundColor: '#00ADB5' }}>

@@ -2,8 +2,8 @@ import React from 'react';
 import RegisterForm from './register_form/RegisterForm';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../../api/auth';
-import LoadingSpinner from '../../shared/LoadingSpinner';
-import MessageError from '../../shared/MessageAlert';
+import { LoadingSpinner } from '../../shared';
+import MessageError from '../../shared/message_alert/MessageAlert';
 
 function RegisterPage() {
   const [error, setError] = React.useState(null);

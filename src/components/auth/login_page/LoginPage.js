@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../login_form/LoginForm';
 import { login } from '../../../api/auth';
-import MessageError from '../../shared/MessageAlert';
-import LoadingSpinner from '../../shared/LoadingSpinner';
+import MessageError from '../../shared/message_alert/MessageAlert';
+import { LoadingSpinner } from '../../shared';
 
 function LoginPage({ onLogin, whatUser }) {
   const [error, setError] = React.useState(null);

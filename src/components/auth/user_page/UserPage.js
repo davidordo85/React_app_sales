@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../../layout/Layout';
 import { useParams } from 'react-router-dom';
 import { getMe } from '../../../api/auth';
-import MessageError from '../../shared/MessageAlert';
+import { MessageAlert } from '../../shared';
 import UserDetail from './UserDetail';
 
 const UserPage = ({ ...props }) => {
@@ -35,7 +35,7 @@ const UserPage = ({ ...props }) => {
         <UserDetail user={myData} isLoading={isLoading} />
       </div>
       {error ? (
-        <MessageError message={error.message} onClick={resetError} />
+        <MessageAlert message={error.message} onClick={resetError} />
       ) : null}
     </Layout>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, FormControl, Button } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
 import { MdRefresh } from 'react-icons/md';
-import SelectCategories from '../shared/SelectCategories';
+import { SelectCategories } from '../shared';
 import './Filter.css';
 
 function Filter({ tags, onSubmit }) {
@@ -10,10 +10,10 @@ function Filter({ tags, onSubmit }) {
   // name complete
   // price complete
   // rating
-  // categories complete
+  // categories complete en front no funciona bien en back
   // category
   // createdAt
-  // companyName
+  // companyName complete
   const initialFilterState = {
     name: '',
     price: null,

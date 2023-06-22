@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Rating,
   Badge,
-  ProductImage,
+  ProductImages,
   FormattedDate,
   LoadingSpinner,
 } from '../shared';
@@ -17,7 +17,7 @@ const ProductDetails = ({ product, isLoading }) => {
         <div className="">
           <h2>{product.name}</h2>
           <div className="d-flex justify-content-between">
-            <ProductImage images={product.images} />
+            <ProductImages images={product.images} />
             <div className="m-3">
               <h4>Description:</h4>
               <p>{product.description}</p>

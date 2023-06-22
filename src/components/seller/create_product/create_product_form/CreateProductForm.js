@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Form, InputGroup } from 'react-bootstrap';
-import FormField from '../../../shared/FormField';
-import SelectCategories from '../../../shared/SelectCategories';
+import { FormField, SelectCategories } from '../../../shared';
 import { FaFolder } from 'react-icons/fa';
 
 function CreateProductForm({ onSubmit, tags }) {
