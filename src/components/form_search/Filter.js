@@ -16,7 +16,7 @@ function Filter({ tags, onSubmit }) {
   // companyName
   const initialFilterState = {
     name: '',
-    price: false,
+    price: null,
     categories: [],
   };
   const [filter, setFilter] = React.useState(initialFilterState);
@@ -24,12 +24,19 @@ function Filter({ tags, onSubmit }) {
   const handleChange = (event, selectedOptions) => {
     if (event && event.target) {
       const { name, value, checked } = event.target;
-      const newFilter = {
-        ...filter,
-        [name]: value,
-        price: checked,
-      };
-      setFilter(newFilter);
+      if (name === 'price') {
+        const newFilter = {
+          ...filter,
+          price: checked,
+        };
+        setFilter(newFilter);
+      } else {
+        const newFilter = {
+          ...filter,
+          [name]: value,
+        };
+        setFilter(newFilter);
+      }
     } else if (selectedOptions) {
       const updatedCategories = Array.from(
         selectedOptions,
@@ -47,9 +54,12 @@ function Filter({ tags, onSubmit }) {
     setFilter(initialFilterState);
   };
 
-  const label = filter.price
-    ? 'Sort from highest to lowest'
-    : 'Sort from lowest to highest';
+  const label =
+    filter.price === null
+      ? 'No price selected'
+      : filter.price
+      ? 'Sort from highest to lowest'
+      : 'Sort from lowest to highest';
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -57,6 +67,8 @@ function Filter({ tags, onSubmit }) {
   };
 
   const { name, categories, price } = filter;
+
+  console.log(filter);
 
   return (
     <Form className="filter-container " onSubmit={handleSubmit}>
@@ -82,7 +94,7 @@ function Filter({ tags, onSubmit }) {
         label={label}
         variant="warning"
         onChange={handleChange}
-        checked={price}
+        checked={price !== null ? price : false}
         id="custom-checkbox"
         className="form-switch filter-item"
       />
